@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect, render_template, session, flash
 from flask_sqlalchemy import SQLAlchemy
-import cgi
+
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -24,7 +24,7 @@ class Blog(db.Model):
 @app.route('/')
 def index():
     blogs = Blog.query.all()
-    return render_template('blog.html', title="Build a Blog", blogs=blogs)
+    return render_template('blog.html', blogs=blogs)
 
 @app.route("/blog", methods=['GET'])
 def a_blog():

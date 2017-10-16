@@ -6,13 +6,13 @@
     
             
             <label for="title">Title for your new blog: </label></br>
-            <input type ="text" name="title" value='{{request.form['title']}}'>
+            <input style="width: 100px" type ="text" name="title" value='{{request.form['title']}}'>
             <span class="error">{{error}}</span>
             </br>
             </br>
             </br>
-            <label for="body">Your new blog: </label></br>
-            <textarea value="{{request.form['body']}}" cols="25" rows="5" name="body"></textarea>
+            <label  for="body"> Your new blog: </label></br>
+            <textarea style="height:100px; width:200px" type="text" name="body">{{request.form['body']}}</textarea>
             <span class="error">{{error_too}}</span>
             <p><input type="submit" value="Add Entry"/></p>
             
