@@ -14,13 +14,15 @@
             <label  for="body"> Your new blog: </label></br>
             <textarea style="height:100px; width:200px" type="text" name="body">{{request.form['body']}}</textarea>
             <span class="error">{{error_too}}</span>
-            <p><input type="submit" value="Add Entry"/></p>
+            <p><input type="submit" value="Add Entry" /></p>
             
        
 </form>
 
-
-
+   <!--{% for blog in blogs %}
+    <a href="/blog?id={{blog.id}}"><h2>{{blog.title}}</h2></a>
+    <p>{{blog.body}}</p>
+    {% endfor %}-->
 
 
 {% endblock %}

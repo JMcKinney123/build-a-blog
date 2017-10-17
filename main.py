@@ -1,5 +1,5 @@
 from flask import Flask, request, redirect, render_template, session, flash
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy, ForeignKey
 
 
 app = Flask(__name__)
@@ -32,7 +32,7 @@ def a_blog():
     if request.args:
         id =  request.args.get('id')
         blog = Blog.query.get(id)
-        blog_listing = "/blog?id=" + str(id)
+        
         return render_template("one_blog.html", blog=blog, id=id)
     else:
         blogs = Blog.query.all()
@@ -58,7 +58,8 @@ def addnewpost():
             blog = Blog(new_title, new_body)
             db.session.add(blog)
             db.session.commit()
-            return render_template("one_blog.html", blog=blog)
+            blog_listing = "/blog?id=" + str(blog.id)
+            return redirect(blog_listing)
     return render_template("add_new_blog.html")
  
 
